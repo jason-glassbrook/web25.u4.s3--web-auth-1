@@ -1,0 +1,14 @@
+{
+  "name": "web-auth-1",
+  "version": "1.0.0",
+  "description": "Web Authentication Project - Unit 4 / Sprint 3",
+  "repository": "https://github.com/jason-glassbrook/web25.u4.s3--web-auth-1.git",
+  "author": "Jason Glassbrook <28660371+jason-glassbrook@users.noreply.github.com>",
+  "license": "MIT",
+  "private": false,
+  "main": "index.js",
+  "scripts" : {
+    "start" : "node index.js",
+    "dev:start" : "nodemon index.js"
+  }
+}
