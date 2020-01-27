@@ -7,4 +7,5 @@ module.exports = {
   models : require ('../models'),
   routes : require ('../routes'),
   server : require ('../server'),
+  tools  : require ('../tools'),
 }

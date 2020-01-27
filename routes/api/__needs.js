@@ -1,7 +1,12 @@
 const {
+
   Router,
   models,
+  tools,
+
 } = require ('../__needs')
+
+/**************************************/
 
 module.exports = {
 
@@ -9,6 +14,7 @@ module.exports = {
 
   Router,
   models,
+  tools,
 
   /*/ local /*/
 

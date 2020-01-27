@@ -1,7 +1,12 @@
 const {
+
   Server,
   routes,
+  tools,
+
 } = require ('../__needs')
+
+/**************************************/
 
 module.exports = {
 
@@ -9,6 +14,7 @@ module.exports = {
 
   Server,
   routes,
+  tools,
 
   /*/ local /*/
 
