@@ -2,6 +2,8 @@
   ~/auth - router
 ***********************************************************/
 
+const bcrypt = require ('bcryptjs')
+
 const {
   Router,
   models,
@@ -16,7 +18,12 @@ const router = Router ()
 router.route ('/auth/register')
 .post ((ri, ro) => {
 
-  const data = ri.body
+  const { username, password } = ri.body
+
+  const data = {
+    username,
+    hash : bcrypt.hashSync (password, 10),
+  }
 
   models.users.push (data)
   .then ((something) => {
