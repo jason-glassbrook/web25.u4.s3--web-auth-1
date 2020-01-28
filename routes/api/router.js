@@ -8,6 +8,8 @@ const {
   routes,
 } = require ('./__needs')
 
+const unimplemented = require ('./unimplemented')
+
 /**************************************/
 
 const router = Router ()
@@ -18,17 +20,7 @@ router.use ('/api',
 )
 
 router.route ('*')
-.all ((ri, ro) => {
-  ro
-  .status (501)
-  .json ({
-    'error' : {
-      'message' : 'not implemented',
-      'method' : ri.method,
-      'route' : ri.originalUrl,
-    }
-  })
-})
+.all (unimplemented)
 
 /**************************************/
 
