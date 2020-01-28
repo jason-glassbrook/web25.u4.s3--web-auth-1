@@ -18,7 +18,7 @@ module.exports = {
 
   /*/ local /*/
 
-  // middleware : require ('./router-middleware'),
+  // middleware : require ('./_middleware'),
   // routes : require ('./_routes'),
 
 }
