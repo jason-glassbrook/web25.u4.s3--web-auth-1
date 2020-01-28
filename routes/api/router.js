@@ -2,11 +2,9 @@
   ~/api - router
 ***********************************************************/
 
-const {
-  Router,
-  middleware,
-  routes,
-} = require ('./__needs')
+const { Router } = require ('./__needs')
+const middleware = require ('./_middleware')
+const routes = require ('./_routes')
 
 const unimplemented = require ('./unimplemented')
 

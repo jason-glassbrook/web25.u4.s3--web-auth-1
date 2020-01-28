@@ -6,9 +6,7 @@ module.exports = registerUser
 
 const bcrypt = require ('bcryptjs')
 
-const {
-  models : { users },
-} = require ('./__needs')
+const { models : { users } } = require ('./__needs')
 
 /**************************************/
 

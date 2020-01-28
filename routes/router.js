@@ -2,10 +2,8 @@
   ~/ - router
 ***********************************************************/
 
-const {
-  Router,
-  routes,
-} = require ('./__needs')
+const { Router } = require ('./__needs')
+const routes = require ('./_routes')
 
 /**************************************/
 

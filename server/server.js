@@ -2,11 +2,8 @@
   server
 ***********************************************************/
 
-const {
-  Server,
-  middleware,
-  routes
-} = require ('./__needs')
+const { Server, routes } = require ('./__needs')
+const middleware = require ('./_middleware')
 
 /**************************************/
 

@@ -2,9 +2,7 @@
   ~/auth - router
 ***********************************************************/
 
-const {
-  Router,
-} = require ('./__needs')
+const { Router } = require ('./__needs')
 
 const registerUser = require ('./registerUser')
 const loginUser = require ('./loginUser')

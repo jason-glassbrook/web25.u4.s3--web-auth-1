@@ -4,9 +4,7 @@ module.exports = getUser
 
 /**************************************/
 
-const {
-  models : { users },
-} = require ('./__needs')
+const { models : { users } } = require ('./__needs')
 
 /**************************************/
 
