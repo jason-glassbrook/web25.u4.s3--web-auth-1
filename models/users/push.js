@@ -1,5 +1,5 @@
 const { data } = require ('./__needs')
-const get = require ('./get')
+const getBy = require ('./getBy')
 
 module.exports =
   async (user_values, ...rest) => {
@@ -8,8 +8,10 @@ module.exports =
       .insert (user_values, [ '_id' ])
     )
 
-    let user_records = _ids.map (
-      async (_id) => await get ({ _id }, ...rest)
+    let user_records = Promise.all (
+      _ids.map (
+        async (_id) => await getBy ('_id', _id, ...rest)
+      )
     )
 
     return user_records
