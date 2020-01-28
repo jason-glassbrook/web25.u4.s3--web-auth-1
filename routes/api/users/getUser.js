@@ -1,8 +1,16 @@
+/**************************************/
+
+module.exports = getUser
+
+/**************************************/
+
 const {
   models : { users },
 } = require ('./__needs')
 
-module.exports = (ri, ro) => {
+/**************************************/
+
+function getUser (ri, ro) {
 
   const { user_id } = ri.params
 

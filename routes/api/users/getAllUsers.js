@@ -1,8 +1,16 @@
+/**************************************/
+
+module.exports = getAllUsers
+
+/**************************************/
+
 const {
   models : { users },
 } = require ('./__needs')
 
-module.exports = (ri, ro) => {
+/**************************************/
+
+function getAllUsers (ri, ro) {
 
   users.getAll ()
   .then ((users) => {
