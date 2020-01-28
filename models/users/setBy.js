@@ -1,8 +1,8 @@
 const set = require ('./set')
 
 module.exports =
-  async (key, value) => {
-    let [ user_record ] = await set ({ [key] : value })
+  async (key, value, ...rest) => {
+    let [ user_record ] = await set ({ [key] : value }, ...rest)
 
     return user_record
   }

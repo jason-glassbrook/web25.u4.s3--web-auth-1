@@ -1,10 +1,10 @@
 const { data } = require ('./__needs')
 
 module.exports =
-  async (_where) => {
+  async (_where, _select = [ '_id', 'username' ]) => {
     let user_records = await (
       data ('users')
-      .select ('_id', 'username')
+      .select (_select)
       .where (_where)
     )
 
