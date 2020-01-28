@@ -1,7 +1,10 @@
 module.exports = {
+  get    : require ('./get'),
+  getBy  : require ('./getBy'),
   getAll : require ('./getAll'),
-  get : require ('./get'),
-  set : require ('./set'),
-  push : require ('./push'),
-  pull : require ('./pull'),
+  set    : require ('./set'),
+  setBy  : require ('./setBy'),
+  push   : require ('./push'),
+  pull   : require ('./pull'),
+  pullBy : require ('./pullBy'),
 }
