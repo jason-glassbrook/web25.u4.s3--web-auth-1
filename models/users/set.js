@@ -2,14 +2,14 @@ const { data } = require ('./__needs')
 const get = require ('./get')
 
 module.exports =
-  async (user_id, user_value) => {
+  async (_where, user_value) => {
     await (
       data ('users')
-      .where ({ _id : user_id })
+      .where (_where)
       .update (user_value)
     )
 
-    let user_record = await get (user_id)
+    let user_record = await get (_where)
 
     return user_record
   }

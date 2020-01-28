@@ -3,12 +3,12 @@ const get = require ('./get')
 
 module.exports =
   async (user_value) => {
-    const [ user_id ] = await (
+    const [ _id ] = await (
       data ('users')
       .insert (user_value, '_id')
     )
 
-    let user_record = await get (user_id)
+    let user_record = await get ({ _id })
 
     return user_record
   }
