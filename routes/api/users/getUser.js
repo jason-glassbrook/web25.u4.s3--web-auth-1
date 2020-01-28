@@ -12,7 +12,7 @@ function getUser (ri, ro) {
 
   const { user_id } = ri.params
 
-  users.getBy ({ _id : user_id })
+  users.getBy ('_id', user_id)
   .then ((user) => {
 
     if (user !== undefined && user !== null) {
