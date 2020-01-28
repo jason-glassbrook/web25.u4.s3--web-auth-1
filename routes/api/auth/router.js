@@ -6,7 +6,7 @@ const bcrypt = require ('bcryptjs')
 
 const {
   Router,
-  models,
+  models : { users },
 } = require ('./__needs')
 
 /**************************************/
@@ -25,7 +25,7 @@ router.route ('/auth/register')
     hash : bcrypt.hashSync (password, 10),
   }
 
-  models.users.push (data)
+  users.push (data)
   .then ((something) => {
 
     ro
