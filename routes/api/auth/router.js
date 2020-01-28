@@ -41,7 +41,7 @@ router.route ('/auth/register')
     .status (500)
     .json ({
       'error' : {
-        'message' : `failed to register new user`,
+        'message' : `internal server error when registering new user`,
         'method' : ri.method,
         'route' : ri.originalUrl,
       }
@@ -88,7 +88,7 @@ router.route ('/auth/login')
     .status (500)
     .json ({
       'error' : {
-        'message' : `failed to login as user with those credentials`,
+        'message' : `internal server error when logging in as user`,
         'method' : ri.method,
         'route' : ri.originalUrl,
       }
