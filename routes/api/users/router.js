@@ -47,7 +47,7 @@ router.route ('/users/:user_id')
 
   const { user_id } = ri.params
 
-  api.users.get (user_id)
+  api.users.getBy ({ _id : user_id })
   .then ((user) => {
 
     if (user !== undefined && user !== null) {

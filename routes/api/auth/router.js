@@ -18,7 +18,7 @@ router.route ('/auth/register')
 
   const data = ri.body
 
-  models.auth.register.push (data)
+  models.users.push (data)
   .then ((something) => {
 
     ro
@@ -49,7 +49,7 @@ router.route ('/auth/login')
 
   const data = ri.body
 
-  models.auth.login.push (data)
+  models.users.push (data)
   .then ((something) => {
 
     ro
