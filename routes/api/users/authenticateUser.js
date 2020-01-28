@@ -74,7 +74,7 @@ function authenticateUser (ri, ro, next) {
     return
   }
 
-  users.getBy ('username', username, [ 'hash' ])
+  users.getFirst ({ username }, [ 'hash' ])
   .then ((user) => {
 
     if (user && bcrypt.compareSync (password, user.hash)) {
