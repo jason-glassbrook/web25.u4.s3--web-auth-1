@@ -7,8 +7,9 @@ exports.up = (knex) => (
         .primary ()
       t
         .string ('username', 128)
+        .unique ()
         .notNullable ()
-        t
+      t
         .string ('hash', 128)
         .notNullable ()
     })
