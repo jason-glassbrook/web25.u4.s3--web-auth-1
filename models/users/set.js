@@ -9,7 +9,7 @@ module.exports =
       .update (user_value)
     )
 
-    let user_record = await get (_where)
+    let user_records = await get (_where)
 
-    return user_record
+    return user_records
   }

@@ -3,7 +3,7 @@ const get = require ('./get')
 
 module.exports =
   async (_where) => {
-    let user_record = await get (_where)
+    let user_records = await get (_where)
 
     await (
       data ('users')
@@ -11,5 +11,5 @@ module.exports =
       .delete ()
     )
 
-    return user_record
+    return user_records
   }
