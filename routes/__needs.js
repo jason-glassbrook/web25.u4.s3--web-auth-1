@@ -1,20 +1,12 @@
-const {
-
-  Router,
-  models,
-  tools,
-
-} = require ('../__needs')
-
 /**************************************/
 
 module.exports = {
 
   /*/ common /*/
 
-  Router,
-  models,
-  tools,
+  Router : require ('../__needs/Router'),
+  models : require ('../models'),
+  tools  : require ('../tools'),
 
   /*/ local /*/
 

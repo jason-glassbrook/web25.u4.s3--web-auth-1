@@ -1,20 +1,12 @@
-const {
-
-  Server,
-  routes,
-  tools,
-
-} = require ('../__needs')
-
 /**************************************/
 
 module.exports = {
 
   /*/ common /*/
 
-  Server,
-  routes,
-  tools,
+  Server : require ('../__needs/Server'),
+  routes : require ('../routes'),
+  tools  : require ('../tools'),
 
   /*/ local /*/
 
