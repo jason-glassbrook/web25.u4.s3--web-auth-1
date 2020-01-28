@@ -5,7 +5,7 @@ module.exports =
   async (user_value) => {
     const [ user_id ] = await (
       data ('users')
-      .insert (user_value)
+      .insert (user_value, '_id')
     )
 
     let user_record = await get (user_id)
