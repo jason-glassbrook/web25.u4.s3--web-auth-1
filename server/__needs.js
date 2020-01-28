@@ -2,7 +2,7 @@
 
 module.exports = {
 
-  Server : require ('../__needs/Server'),
+  Server : require ('../common/Server'),
   routes : require ('../routes'),
   tools  : require ('../tools'),
 

@@ -2,7 +2,7 @@
 
 module.exports = {
 
-  Router : require ('../__needs/Router'),
+  Router : require ('../common/Router'),
   models : require ('../models'),
   tools  : require ('../tools'),
 
