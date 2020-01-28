@@ -22,7 +22,7 @@ This project will be completed over two days.
 
 ### Database
 
--   [ ] Create a database for `users` and their information
+-   [x] Create a database for `users` and their information
 
 ### Endpoints
 
