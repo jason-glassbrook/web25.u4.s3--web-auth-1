@@ -1,8 +1,15 @@
-const bcrypt = require ('bcryptjs')
+/**************************************/
 
+module.exports = authenticateUser
+
+/**************************************/
+
+const bcrypt = require ('bcryptjs')
 const { models : { users } } = require ('./__needs')
 
-module.exports = (ri, ro, next) => {
+/**************************************/
+
+function authenticateUser (ri, ro, next) {
 
   const { authorization } = ri.headers
 
@@ -16,6 +23,8 @@ module.exports = (ri, ro, next) => {
         'route' : ri.originalUrl,
       }
     })
+
+    return
   }
 
   const { username, password } = authorization
@@ -30,6 +39,8 @@ module.exports = (ri, ro, next) => {
         'route' : ri.originalUrl,
       }
     })
+
+    return
   }
 
   if (password === undefined) {
@@ -42,6 +53,8 @@ module.exports = (ri, ro, next) => {
         'route' : ri.originalUrl,
       }
     })
+
+    return
   }
 
   users.getBy ('username', username)
