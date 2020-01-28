@@ -27,7 +27,7 @@ function authenticateUser (ri, ro, next) {
     return
   }
 
-  const { username, password } = authorization
+  const { username, password } = JSON.parse (authorization)
 
   if (username === undefined) {
     ro
