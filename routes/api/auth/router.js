@@ -64,7 +64,7 @@ router.route ('/auth/login')
       ro
       .status (201)
       .json ({
-        'message' : `Welcome, ${username}`,
+        'message' : `Welcome, ${user.username}`,
       })
 
     } else {
