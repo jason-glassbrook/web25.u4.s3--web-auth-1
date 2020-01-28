@@ -14,7 +14,7 @@ function loginUser (ri, ro) {
 
   const { username, password } = ri.body
 
-  users.getBy ('username', username)
+  users.getBy ('username', username, [ 'username', 'hash' ])
   .then ((user) => {
 
     if (user && bcrypt.compareSync (password, user.hash)) {
