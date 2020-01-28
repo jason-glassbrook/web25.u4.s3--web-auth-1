@@ -32,7 +32,7 @@ router.route ('/users')
     .status (500)
     .json ({
       'error' : {
-        'message' : `failed to get all users`,
+        'message' : `internal server error when getting all users`,
         'method' : ri.method,
         'route' : ri.originalUrl,
       }
@@ -80,7 +80,7 @@ router.route ('/users/:user_id')
     .status (500)
     .json ({
       'error' : {
-        'message' : `failed to get user with id ${user_id}`,
+        'message' : `internal server error when getting user with id ${user_id}`,
         'method' : ri.method,
         'route' : ri.originalUrl,
       }
