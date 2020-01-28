@@ -20,11 +20,16 @@ function registerUser (ri, ro) {
   }
 
   users.push (data)
-  .then ((something) => {
+  .then (([ user ]) => {
+
+    const { _id, username } = user
 
     ro
     .status (201)
-    .json (something)
+    .json ({
+      'message' : `Welcome to the family, ${username}!`,
+      user : { _id, username },
+    })
 
   })
   .catch ((error) => {
