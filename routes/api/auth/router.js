@@ -54,14 +54,30 @@ router.route ('/auth/register')
 router.route ('/auth/login')
 .post ((ri, ro) => {
 
-  const data = ri.body
+  const { username, password } = ri.body
 
-  models.users.push (data)
-  .then ((something) => {
+  users.getBy ('username', username)
+  .then ((user) => {
 
-    ro
-    .status (201)
-    .json (something)
+    if (user && bcrypt.compareSync (password, user.hash)) {
+
+      ro
+      .status (201)
+      .json ({
+        'message' : `Welcome, ${username}`,
+      })
+
+    } else {
+
+      ro
+      .status (401)
+      .json ({
+        'error' : {
+          'message' : `invalid user credentials`,
+        }
+      })
+
+    }
 
   })
   .catch ((error) => {
