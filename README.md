@@ -40,7 +40,7 @@ This project will be completed over two days.
 
 >   due after completing the second module.
 
--   [ ] Add support for **sessions** and **cookies**, and use them to keep a record of logged in users across requests.
+-   [x] Add support for **sessions** and **cookies**, and use them to keep a record of logged in users across requests.
 
 ## Stretch Problem
 
