@@ -1,6 +1,7 @@
 module.exports = {
 
-  Server : require ('./Server'),
   Router : require ('./Router'),
+  Server : require ('./Server'),
+  Session : require ('./Session'),
 
 }
