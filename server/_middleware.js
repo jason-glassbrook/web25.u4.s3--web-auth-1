@@ -1,11 +1,11 @@
-const helmet = require ('helmet')
-const cors = require ('cors')
-const morgan = require ('morgan')
-
 module.exports = [
 
-  helmet (),
-  cors (),
-  morgan ('dev'),
+  require ('helmet') (),
+
+  require ('./session') (),
+
+  require ('cors') (),
+
+  require ('morgan') ('dev'),
 
 ]
