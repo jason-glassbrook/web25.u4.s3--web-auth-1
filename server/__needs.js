@@ -1,10 +1,17 @@
 /**************************************/
 
+const {
+  Server,
+  Session,
+  SessionProvider,
+} = ('../common')
+
 module.exports = {
 
-  Server  : require ('../common/Server'),
-  Session : require ('../common/Session'),
-  routes  : require ('../routes'),
-  tools   : require ('../tools'),
+  Server,
+  Session,
+  SessionProvider,
+  routes : require ('../routes'),
+  tools  : require ('../tools'),
 
 }
