@@ -1,5 +1,3 @@
-const express = require ('express')
+/**************************************/
 
-module.exports = () => (
-  express ()
-)
+module.exports = require ('express')

@@ -1,5 +1,3 @@
-const express = require ('express')
+/**************************************/
 
-module.exports = () => (
-  express.Router ()
-)
+module.exports = require ('express').Router
