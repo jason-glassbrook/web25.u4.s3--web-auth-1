@@ -10,9 +10,9 @@ const { models : { users } } = require ('./__needs')
 
 function getUser (ri, ro) {
 
-  const { user_id : _id } = ri.params
+  const { user_id } = ri.params
 
-  users.getFirst ({ _id })
+  users.getFirst ({ _id : user_id })
   .then ((user) => {
 
     if (user !== undefined && user !== null) {
