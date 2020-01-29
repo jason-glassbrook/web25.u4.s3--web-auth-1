@@ -11,103 +11,127 @@ const { models : { users } } = require ('./__needs')
 
 function authenticateUser (ri, ro, next) {
 
-  let { authorization } = ri.headers
+  /***************************************
+    USING SESSIONS
+  ***************************************/
 
-  if (authorization === undefined) {
+  if (ri.session && ri.session.loggedIn) {
+
+    next ()
+
+  } else {
+
     ro
-    .status (400)
+    .status (401)
     .json ({
       'error' : {
-        'message' : `request needs headers.authorization`,
-        'method' : ri.method,
-        'route' : ri.originalUrl,
+        'message' : `session not authorized`,
       }
     })
 
-    return
   }
 
-  try {
-    authorization = JSON.parse (authorization)
-  }
-  catch (error)  {
-    ro
-    .status (400)
-    .json ({
-      'error' : {
-        'message' : `request needs headers.authorization to be in JSON format`,
-        'method' : ri.method,
-        'route' : ri.originalUrl,
-      }
-    })
+  /***************************************
+    USING AUTHORIZATION HEADER
+  ***************************************/
 
-    return
-  }
+  // let { authorization } = ri.headers
 
-  const { username, password } = authorization
+  // if (authorization === undefined) {
+  //   ro
+  //   .status (400)
+  //   .json ({
+  //     'error' : {
+  //       'message' : `request needs headers.authorization`,
+  //       'method' : ri.method,
+  //       'route' : ri.originalUrl,
+  //     }
+  //   })
 
-  if (username === undefined) {
-    ro
-    .status (400)
-    .json ({
-      'error' : {
-        'message' : `request needs headers.authorization.username`,
-        'method' : ri.method,
-        'route' : ri.originalUrl,
-      }
-    })
+  //   return
+  // }
 
-    return
-  }
+  // try {
+  //   authorization = JSON.parse (authorization)
+  // }
+  // catch (error)  {
+  //   ro
+  //   .status (400)
+  //   .json ({
+  //     'error' : {
+  //       'message' : `request needs headers.authorization to be in JSON format`,
+  //       'method' : ri.method,
+  //       'route' : ri.originalUrl,
+  //     }
+  //   })
 
-  if (password === undefined) {
-    ro
-    .status (400)
-    .json ({
-      'error' : {
-        'message' : `request needs headers.authorization.password`,
-        'method' : ri.method,
-        'route' : ri.originalUrl,
-      }
-    })
+  //   return
+  // }
 
-    return
-  }
+  // const { username, password } = authorization
 
-  users.getFirst ({ username }, [ 'hash' ])
-  .then ((user) => {
+  // if (username === undefined) {
+  //   ro
+  //   .status (400)
+  //   .json ({
+  //     'error' : {
+  //       'message' : `request needs headers.authorization.username`,
+  //       'method' : ri.method,
+  //       'route' : ri.originalUrl,
+  //     }
+  //   })
 
-    if (user && bcrypt.compareSync (password, user.hash)) {
+  //   return
+  // }
 
-      next ()
+  // if (password === undefined) {
+  //   ro
+  //   .status (400)
+  //   .json ({
+  //     'error' : {
+  //       'message' : `request needs headers.authorization.password`,
+  //       'method' : ri.method,
+  //       'route' : ri.originalUrl,
+  //     }
+  //   })
 
-    } else {
+  //   return
+  // }
 
-      ro
-      .status (401)
-      .json ({
-        'error' : {
-          'message' : `invalid user credentials`,
-        }
-      })
+  // users.getFirst ({ username }, [ 'hash' ])
+  // .then ((user) => {
 
-    }
+  //   if (user && bcrypt.compareSync (password, user.hash)) {
 
-  })
-  .catch ((error) => {
+  //     next ()
 
-    console.log (error)
+  //   } else {
 
-    ro
-    .status (500)
-    .json ({
-      'error' : {
-        'message' : `internal server error when authenticating user`,
-        'method' : ri.method,
-        'route' : ri.originalUrl,
-      }
-    })
+  //     ro
+  //     .status (401)
+  //     .json ({
+  //       'error' : {
+  //         'message' : `invalid user credentials`,
+  //       }
+  //     })
 
-  })
+  //   }
+
+  // })
+  // .catch ((error) => {
+
+  //   console.log (error)
+
+  //   ro
+  //   .status (500)
+  //   .json ({
+  //     'error' : {
+  //       'message' : `internal server error when authenticating user`,
+  //       'method' : ri.method,
+  //       'route' : ri.originalUrl,
+  //     }
+  //   })
+
+  // })
 
 }
