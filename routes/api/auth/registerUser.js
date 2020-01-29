@@ -24,6 +24,9 @@ function registerUser (ri, ro) {
 
     const { _id, username } = user
 
+    ri.session.loggedIn = true
+    ri.session.userId = _id
+
     ro
     .status (201)
     .json ({
