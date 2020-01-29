@@ -4,7 +4,7 @@ const {
   Server,
   Session,
   SessionProvider,
-} = ('../common')
+} = require ('../common')
 
 module.exports = {
 
