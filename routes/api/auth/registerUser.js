@@ -22,17 +22,14 @@ function registerUser (ri, ro) {
   users.push (data)
   .then (([ user ]) => {
 
-    const { _id, username } = user
-
     ri.session.loggedIn = true
-    ri.session.userId = _id
-    ri.session.userName = username
+    ri.session.user = user
 
     ro
     .status (201)
     .json ({
-      'message' : `Welcome to the family, ${username}!`,
-      user : { _id, username },
+      'message' : `Welcome to the family, ${user.username}!`,
+      user,
     })
 
   })

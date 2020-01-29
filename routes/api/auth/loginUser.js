@@ -15,21 +15,23 @@ function loginUser (ri, ro) {
   const { username, password } = ri.body
 
   users.getFirst ({ username }, [ '*' ])
-  .then ((user) => {
+  .then ((_user) => {
 
-    if (user && bcrypt.compareSync (password, user.hash)) {
+    if (_user && bcrypt.compareSync (password, _user.hash)) {
 
-      const { _id, username } = user
+      const user = {
+        _id : _user._id,
+        username : _user.username,
+      }
 
       ri.session.loggedIn = true
-      ri.session.userId = _id
-      ri.session.userName = username
+      ri.session.user = user
 
       ro
       .status (201)
       .json ({
         'message' : `Welcome back, ${user.username}!`,
-        user : { _id, username },
+        user,
       })
 
     } else {

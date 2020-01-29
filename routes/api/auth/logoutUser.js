@@ -6,12 +6,9 @@ module.exports = logoutUser
 
 function logoutUser (ri, ro) {
 
-  if (ri.session) {
+  if (ri.session && ri.session.user) {
 
-    const {
-      userId : _id,
-      userName : username,
-    } = ri.session
+    const { user } = ri.session
 
     ri.session.destroy((error) => {
       if (error) {
@@ -32,8 +29,8 @@ function logoutUser (ri, ro) {
         ro
         .status (201)
         .json ({
-          'message' : `Farewell, ${username}!`,
-          user : { _id, username },
+          'message' : `Farewell, ${user.username}!`,
+          user,
         })
 
       }
@@ -42,7 +39,10 @@ function logoutUser (ri, ro) {
   } else {
 
       ro
-      .status (204)
+      .status (201)
+      .json ({
+        'message' : `Farewell!`,
+      })
 
   }
 
