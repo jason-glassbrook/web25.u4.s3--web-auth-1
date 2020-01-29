@@ -23,6 +23,7 @@ function loginUser (ri, ro) {
 
       ri.session.loggedIn = true
       ri.session.userId = _id
+      ri.session.userName = username
 
       ro
       .status (201)
